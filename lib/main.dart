@@ -133,7 +133,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onPressed: () {
               showAboutDialog(
                 context: context,
-                applicationName: 'Hii Welcome to My Student Profile App',
+                applicationName: 'Hi Welcome to My Student Profile App',
                 applicationVersion: 'by me Joshuel Dinong',
                 children: [
                   const Text('Built using Flutter Material 3 components.'),
@@ -149,6 +149,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Dark/Light Mode Toggle Button
+              Align(
+                alignment: Alignment.centerRight,
+                child: ElevatedButton.icon(
+                  onPressed: widget.onToggleTheme,
+                  icon: Icon(
+                    isDark ? Icons.light_mode : Icons.dark_mode,
+                    color: isDark ? const Color(0xFF312C51) : Colors.white,
+                  ),
+                  label: Text(
+                    isDark ? 'Light Mode' : 'Dark Mode',
+                    style: TextStyle(
+                      color: isDark ? const Color(0xFF312C51) : Colors.white,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: isDark
+                        ? const Color(0xFFF0C38E)
+                        : const Color(0xFF40426D),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
               // Header Section
               Container(
                 padding: const EdgeInsets.all(16.0),
@@ -163,8 +191,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       borderRadius: BorderRadius.circular(16),
                       child: Image.network(
                         'https://scontent.fmnl13-4.fna.fbcdn.net/v/t1.15752-9/775318453_1602238641412810_9152266403654461743_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE2aMlPRBswRm5mSLjkc9xdqi4K-dBn1cmqLgr50GfVyep6tkpaPkK-hVN0XmO0yuxQH1wK-NCmazSDHlJRO2Xe&_nc_ohc=LTUBGvgMLewQ7kNvwEhC8KV&_nc_oc=AdqlPGSPJjXZqmwEdym4Js-adM9uCqOCRapN1_y2OGGSlkGcEWmJ7rd09dCrikbaWPg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_ss=7a22e&oh=03_Q7cD6AH5kwAqELRXXd1xfKRJ_mJrTHOm9eq3MP4603bFsRNVhQ&oe=6AAA5527',
-                        width: 190,
-                        height: 190,
+                        width: 130,
+                        height: 140,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -176,7 +204,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Text(
                             'Joshuel Dinong',
                             style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 28,
                               fontWeight: FontWeight.bold,
                               height: 1.2,
                               color: textColor,
@@ -416,34 +444,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20),
-
-              // Dark/Light Mode Toggle Button
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                    onPressed: widget.onToggleTheme,
-                    icon: Icon(
-                      isDark ? Icons.light_mode : Icons.dark_mode,
-                      color: isDark ? const Color(0xFF312C51) : Colors.white,
-                    ),
-                    label: Text(
-                      isDark ? 'Light Mode' : 'Dark Mode',
-                      style: TextStyle(
-                        color: isDark ? const Color(0xFF312C51) : Colors.white,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: isDark ? const Color(0xFFF0C38E) : const Color(0xFF40426D),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               const SizedBox(height: 20),
             ],
           ),
